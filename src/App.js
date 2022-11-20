@@ -140,7 +140,7 @@ function App() {
 			) : (
 				<div className="title">
 					<h3>Quizzical</h3>
-					<p>Some description if needed</p>
+					<p>Answer the questions and test your knowledge!</p>
 					<button onClick={() => playGame()} className="start-button">
 						Start quiz
 					</button>
