@@ -64,7 +64,7 @@ function App() {
 	};
 	fetchData();
 
-	}, [newGame]);
+	}, []);
 
 	React.useEffect(() => {
 		//count right answers
