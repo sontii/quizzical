@@ -2,17 +2,33 @@ body {
   margin: 0;
   background-color: black;
   font-family: 'Karla', sans-serif;
+  
 }
 
 .blob-yellow{
   position: absolute;
   right: 0px;
+  pointer-events:none; 
+  z-index: 0;
+}
+
+.shrink-yellow{
+  height: 25%;
+  width: 25%;
+  opacity: 50%;
 }
 
 .blob-blue{
   position: absolute;
   bottom: 0px;
-  left: 0px;  
+  left: 0px;
+  pointer-events:none; 
+  z-index: 0;
+}
+
+.shrink-blue{
+  height: 10%;
+  width: 10%;
 }
 
 main {
@@ -65,14 +81,100 @@ main {
   cursor: pointer;
 }
 
+.quiz-wrap{
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  height: 85%;
+  z-index: 5;
+}
+
 .quiz-box{
-  width: 400px;
+  max-width: 400px;
+  font-family: 'Inter';
+  font-style: normal;
+  
+  font-size: 10.24px;
+  line-height: 12px;
+  margin-bottom: 20px;
+  color: #293264;
 }
 
 .quiz-all{
   margin-top: 40px;
+  
+}
+
+.quiz-question{
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #293264;
 }
 
 .buttons-container{
   display: inline-block;
+}
+
+.answer-button{
+  height: 20px;
+  border-radius: 7px;
+  background: #F5F7FB;
+  border: solid 0.8px #4D5B9E;
+  margin-top: 10px;
+  margin-right: 12px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10.24px;
+  color: #293264;  
+}
+
+.button-selected{
+  background-color: #D6DBF5;
+  border: none;
+}
+
+.button-check-correct{
+  background-color: #94D7A2;
+  border: none;
+}
+
+.button-check-incorrect{
+  background-color: #F8BCBC;
+  border: none;
+}
+.button-check-notCorrect{
+  opacity: 70%
+}
+
+hr{
+  margin-top: 15px;
+}
+
+.check-container{
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.check-button{
+  height: 35px;
+  width: 120px;
+  margin-left: 15px;
+  background-color: #4D5B9E;
+  color: #F5F7FB;
+  border-radius: 10px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10.24px;
+  line-height: 12px;
+}
+ 
+.play-button{
+  height: 30px;
+  width: 104px;
 }
