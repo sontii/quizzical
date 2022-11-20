@@ -24,7 +24,7 @@ function App() {
 			isSelected: false,
 		});
 
-		const incorrect = quiz.incorrect_answers.map(answer => {
+		quiz.incorrect_answers.map(answer => {
 			answers.push({
 				answer: answer,
 				correct: false,
@@ -39,32 +39,30 @@ function App() {
 		return newQuiz
 	}
 
-  React.useEffect(() => {
-    
-	//fetch
-    const fetchData = async () => {
-      try {
-		const apiUrl = "https://opentdb.com/api.php?amount=4&category=9&difficulty=easy&type=multiple"
-		const response = await fetch(apiUrl);
-		const json = await response.json();
+	const fetchData = async () => {
+		try {
+			const apiUrl =
+				"https://opentdb.com/api.php?amount=4&category=9&difficulty=easy&type=multiple";
+			const response = await fetch(apiUrl);
+			const json = await response.json();
 
-		//add unique id for every quiz (child render)
-		const jsonId = json.results.map(quiz => {
-			return {...quiz, id: nanoid()}
-		})
+			//add unique id for every quiz (child render)
+			const jsonId = json.results.map((quiz) => {
+				return { ...quiz, id: nanoid() };
+			});
 
-		//mutate JSON merge correct and incorrect array 
-		//with boolean and unique id for buttons
-		const mutateJson = jsonId.map(quiz => generateAnswers(quiz))
-		setQuizData(mutateJson);
-		
+			//mutate JSON merge correct and incorrect array
+			//with boolean and unique id for buttons
+			const mutateJson = jsonId.map((quiz) => generateAnswers(quiz));
+			setQuizData(mutateJson);
 		} catch (error) {
 			console.log("error: ", error);
 		}
 	};
-	fetchData();
 
-	}, []);
+	React.useEffect(() => {
+		fetchData();
+		}, []);
 
 	React.useEffect(() => {
 		//count right answers
@@ -92,8 +90,7 @@ function App() {
 					}
 				})
 			} 
-			return quiz
-			
+			return quiz	
 		})
 		setQuizData(mutate)
 	}
@@ -110,6 +107,7 @@ function App() {
 	function playAgain() {
 		setCheckAnswer(false)
 		setNewGame(false)
+		fetchData()
 	}
 
   return (
