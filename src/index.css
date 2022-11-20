@@ -34,7 +34,7 @@ body {
 main {
   margin: 30px auto;
   height: 550px;
-  width: 550px;
+  max-width: 550px;
   background-color: #F5F7FB;
   position:relative;
   display: flex;
